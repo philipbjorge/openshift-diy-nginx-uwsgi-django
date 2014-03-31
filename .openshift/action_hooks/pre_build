@@ -13,7 +13,7 @@ MEMCACHED_VERSION="1.4.15"
 PYTHON_CURRENT=`${OPENSHIFT_DATA_DIR}/bin/python -c 'import sys; print(".".join(map(str, sys.version_info[:3])))'`
 if [ "$PYTHON_CURRENT" != "$PYTHON_VERSION" ]; then
 	cd $OPENSHIFT_TMP_DIR
-	wget http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tar.bz2
+	wget http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
 	tar jxf Python-${PYTHON_VERSION}.tar.bz2
 	cd Python-${PYTHON_VERSION}
 	./configure --prefix=$OPENSHIFT_DATA_DIR
