@@ -1,5 +1,5 @@
-Django>=1.5
+Django>=1.6
 psycopg2
 uwsgi
-Pillow
+PIL
 python-memcached
