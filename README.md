@@ -1,4 +1,4 @@
-Python 2.7.4 + Nginx + uWSGI + Django on Openshift
+Python 2.7.8 + Nginx + uWSGI + Memcached + Django on Openshift
 ==================================================
 
 
@@ -26,9 +26,10 @@ Pre build stage
 ---------------
 
 The 'pre_build' hook script performs the following actions:
-* Installs Python 2.7.4
-* Installs Virtualenv 1.9.1 and creates virtualenv in $OPENSHIFT_DATA_DIR/virtualenv
-* Installs Nginx 1.4.0
+* Installs Python 2.7.8
+* Installs Virtualenv 1.11.6 and creates virtualenv in $OPENSHIFT_DATA_DIR/virtualenv
+* Installs Nginx 1.7.7
+* Installs Memcached 1.4.21
 
 You can install any version as you want, just change versions variables in this script
 
@@ -36,7 +37,7 @@ You can install any version as you want, just change versions variables in this 
 Build stage
 -----------
 
-* Installs a pip packages from 'requirements.txt' (Django>=1.5, psycopg2, uwsgi, Pillow)
+* Installs a pip packages from 'requirements.txt' (Django>=1.5, psycopg2, uwsgi, Pillow, python-memcached)
 
 Feel free to edit this file, but leave uWSGI and Django.
 
@@ -46,5 +47,3 @@ Deploy stage
 
 * Creates static and media dirs ($OPENSHIFT_DATA_DIR/static/static and $OPENSHIFT_DATA_DIR/static/media) for Django
 * Substitute environments variables to Nginx and uWSGI configs and copy its to $OPENSHIFT_DATA_DIR
-
-
